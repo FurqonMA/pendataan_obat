@@ -18,8 +18,12 @@ class Admin extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
-	public function dashboard()
+	public function index()
 	{
+		$data['title'] = 'Pendataan Obat';
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar');
 		$this->load->view('dashboard');
+		$this->load->view('templates/footer');
 	}
 }

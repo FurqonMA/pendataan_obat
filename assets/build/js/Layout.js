@@ -97,7 +97,7 @@
     } else {
       var postSetHeight;
 
-      if (windowHeight >= sidebarHeight + headerHeight) {
+      if (windowHeight >= sidebarHeight) {
         $(Selector.contentWrapper).css('min-height', windowHeight - neg);
         postSetHeight = windowHeight - neg;
       } else {
