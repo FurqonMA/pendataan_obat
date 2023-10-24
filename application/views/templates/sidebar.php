@@ -16,7 +16,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU ADMIN</li>
         <li class="active">
-          <a href="#">
+          <a href="<?= base_url() ?>Admin/index">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
