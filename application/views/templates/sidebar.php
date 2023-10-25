@@ -21,7 +21,7 @@
           </a>
         </li>
         <li class="active">
-          <a href="#">
+          <a href="<?= base_url() ?>User/index">
             <i class="fa fa-user"></i> <span>Manajemen User</span>
           </a>
         </li>
