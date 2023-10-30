@@ -7,7 +7,7 @@
           <img src="<?php echo base_url() ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Furqon Maulana</p>
+          <p><?php echo $this->session->userdata('fullname'); ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -31,7 +31,7 @@
           </a>
         </li>
         <li class="active">
-          <a href="#">
+          <a href="<?php echo base_url()?>Obat/index">
           <i class="fa fa-medkit"></i> <span>Manajemen Obat</span>
           </a>
         </li>

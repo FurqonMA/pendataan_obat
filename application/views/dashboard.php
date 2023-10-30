@@ -1,88 +1,106 @@
-
-
-  <!-- Left side column. contains the logo and sidebar -->
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header text-center">
+    <section class="content-header">
       <h1>
         Dashboard
       </h1>
     </section>
 
-    <div class="contianer text-center" style="margin-top: 50px;">
+    <div class="contianer" style="margin-top: 20px;  margin-bottom: 50px;">
       <div class="row">
-         <h4>Selamat Datang Muhammad Furqon Maulana</h4>
+         <h4 style="margin-left: 33%; font-size: 2rem;">Selamat Datang <span style="font-weight: bold;"><?php echo $this->session->userdata('fullname'); ?></span></h4>
       </div>
     </div>
-
-    <!-- Main content -->
-    <section class="content">
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-aqua">
-            <div class="inner">
-              <h3>150</h3>
-
-              <p>New Orders</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
+    <div class="container mt-5">
+      <div class="row" style="margin-left: 10px;">
+        <div class="col-lg-4">
+          <div class="kotak" style="background-color: rgb(235, 79, 79); height: 120px; width: 240px; margin-top: 10px;">
+              <h3 style="text-align: center; padding-top: 20px; color: white; font-weight: bold; font-size: 5rem;"><?= $dataAllObat; ?></h3>
+              <p style="position: absolute; bottom: 0; left: 50px; color: white; font-size: 1.75rem;">JUMLAH TOTAL OBAT</p>
           </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-              <p>Bounce Rate</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
+        <div class="col-lg-4">
+          <div class="kotak" style="background-color: rgb(235, 79, 79); height: 120px; width: 240px; margin-top: 10px;">
+              <h3 style="text-align: center; padding-top: 20px; color: white; font-weight: bold; font-size: 5rem;"><?= $expired; ?></h3>
+              <p style="position: absolute; bottom: 0; left: 50px; color: white; font-size: 1.75rem;">JUMLAH OBAT EXPIRED</p>
           </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-yellow">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>User Registrations</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
+        <div class="col-lg-4">
+          <div class="kotak" style="background-color: rgb(235, 79, 79); height: 120px; width: 240px; margin-top: 10px;">
+              <h3 style="text-align: center; padding-top: 20px; color: white; font-weight: bold; font-size: 5rem;"><?= $no_expired; ?></h3>
+              <p style="position: absolute; bottom: 0; left: 35px; color: white; font-size: 1.55rem;">JUMLAH OBAT BELUM EXPIRED</p>
           </div>
         </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-red">
-            <div class="inner">
-              <h3>65</h3>
-
-              <p>Unique Visitors</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-          </div>
-        </div>
-        <!-- ./col -->
       </div>
+      <div class="row" style="margin-left: 10px;">
+        <div class="col-lg-4">
+          <div class="kotak" style="background-color: rgb(79, 147, 235); height: 120px; width: 240px; margin-top: 10px;">
+              <h3 style="text-align: center; padding-top: 20px; color: white; font-weight: bold; font-size: 5rem;"><?= $dataAllUser; ?></h3>
+              <p style="position: absolute; bottom: 0; left: 60px; color: white; font-size: 1.75rem;">JUMLAH TOTAL USER</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="kotak" style="background-color: rgb(79, 147, 235); height: 120px; width: 240px; margin-top: 10px;">
+              <h3 style="text-align: center; padding-top: 20px; color: white; font-weight: bold; font-size: 5rem;"><?= $aktif; ?></h3>
+              <p style="position: absolute; bottom: 0; left: 60px; color: white; font-size: 1.75rem;">JUMLAH USER AKTIF</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="kotak" style="background-color: rgb(79, 147, 235); height: 120px; width: 240px; margin-top: 10px;">
+              <h3 style="text-align: center; padding-top: 20px; color: white; font-weight: bold; font-size: 5rem;"><?= $tidak_aktif; ?></h3>
+              <p style="position: absolute; bottom: 0; left: 40px; color: white; font-size: 1.55rem;">JUMLAH USER BELUM AKTIF</p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="kotak" style="background-color: rgb(255, 172, 19); height: 120px; width: 240px; margin-top: 10px;">
+              <h3 style="text-align: center; padding-top: 20px; color: rgb(255, 255, 255); font-weight: bold; font-size: 5rem;"><?= $dataAllJenis; ?></h3>
+              <p style="position: absolute; bottom: 0; left: 55px; color: rgb(255, 255, 255); font-size: 1.75rem;">JUMLAH JENIS OBAT</p>
+          </div>
+        </div>
+      </div>     
+    </div>
+      <section class="content-header" style="margin-top: 40px; margin-left: 37%; margin-bottom: -40px;">
+          <h3>
+              DATA STOK OBAT
+          </h3>
+      </section>
+      <section class="content">
+          <div class="container-fluid" style="margin-top: 20px;">               
+              <div class="row" style="margin-top: 10px;">
+                  <div class="col-lg-12">
+                      <div class="box">
+                          <div class="box-body">
+                              <table class="table table-bordered">
+                                <tr>
+                                  <th>NO</th>
+                                  <th>NAMA OBAT</th>
+                                  <th>SATUAN</th>
+                                  <th>HARGA</th>
+                                  <th>STOK</th>
+                                  <th>TANGGAL EXPIRED</th>  
+                                </tr>
+                                <?php 
+                                $no=1;
+                                foreach($Obat as $obt) :
+                                ?>
+                                <tr>
+                                  <td><?php echo $no++ ?></td>
+                                  <td><?php echo $obt->nama_obat ?></td>
+                                  <td><?php echo $obt->satuan ?></td>
+                                  <td><?php echo $obt->harga ?></td>
+                                  <td><?php echo $obt->stok ?></td>
+                                  <td><?php echo $obt->tanggal_expired ?></td>                               
+                                </tr>
+                                <?php endforeach; ?>
+                              </table>
+                            </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
 
-    </section>
-    <!-- /.content -->
+
   </div>
-  <!-- /.content-wrapper -->
-
 </body>
 </html>

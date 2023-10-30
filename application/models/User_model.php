@@ -7,8 +7,8 @@ class User_model extends CI_Model  {
     }
 
     public function input_data($data, $table) {
-        return $this->db->insert($table, $data);
-    }
+        $this->db->insert($table, $data);
+    } 
 
     public function edit_data($where, $table) {
         return $this->db->get_where($table, $where);

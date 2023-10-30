@@ -18,7 +18,7 @@ class Jenis_obat extends CI_Controller {
 		$data = array (
 			'nama_jenis_obat'	=> $nama_jenis_obat,
 		);
-
+		$this->session->set_flashdata('success_message', 'Data Telah Berhasil Ditambah.');
 		$this->Jenis_obat_model->input_data($data, 'tb_jenis_obat');
 		redirect('Jenis_obat/index');
 	}
@@ -46,14 +46,22 @@ class Jenis_obat extends CI_Controller {
 		$where = array(
 			'id_jenis_obat' => $id_jenis_obat
 		);
-
+		$this->session->set_flashdata('update_message', 'Data Telah Berhasil Diedit.');
 		$this->Jenis_obat_model->update_data($where, $data, 'tb_jenis_obat');
 		redirect('Jenis_obat/index');
 	}
  
 	public function hapus($id_jenis_obat) {
 		$where = array('id_jenis_obat' => $id_jenis_obat);
+		$this->session->set_flashdata('delete_message', 'Data Telah Berhasil Dihapus.');
 		$this->Jenis_obat_model->hapus_data($where, 'tb_jenis_obat');
+		redirect('Jenis_obat/index');
+	}
+
+	public function hapus_all() {
+		$table = 'tb_jenis_obat';
+		$this->session->set_flashdata('emptytable_message', 'Semua Data Telah Berhasil Dihapus.');
+		$this->db->empty_table($table);
 		redirect('Jenis_obat/index');
 	}
 }

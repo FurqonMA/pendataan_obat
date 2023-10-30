@@ -3,27 +3,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/userguide3/general/urls.html
-	 */
+	public function __construct()
+{
+    parent::__construct();
+    if (!$this->Login_model->is_logged_in()) {
+        $this->session->set_flashdata('error', 'Anda harus login terlebih dahulu.');
+        redirect('Login');
+    }
+}
+
+
 	public function index()
 	{
-		$data['title'] = 'Pendataan Obat';
+		$data['title'] 			= 'Pendataan Obat';
+		$data['dataAllObat'] 	= $this->db->count_all_results('tb_obat');
+		$data['dataAllUser'] 	= $this->db->count_all_results('tb_user');
+		$data['dataAllJenis'] 	= $this->db->count_all_results('tb_jenis_obat');
+		$data['expired']		= $this->db->query("SELECT count(id_obat) as id from tb_obat where tanggal_expired < CURRENT_DATE")->row()->id;
+		$data['no_expired']		= $this->db->query("SELECT count(id_obat) as id from tb_obat where tanggal_expired > CURRENT_DATE")->row()->id;
+		$data['aktif']		= $this->db->query("SELECT count(id_user) as id from tb_user where is_active = 'aktif' ")->row()->id;
+		$data['tidak_aktif']		= $this->db->query("SELECT count(id_user) as id from tb_user where is_active = 'tidak aktif' ")->row()->id;
+		$data['Obat']		  	= $this->Obat_model->tampil_data()->result();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar');
-		$this->load->view('dashboard');
+		$this->load->view('dashboard',$data);
 		$this->load->view('templates/footer');
 	}
 }
